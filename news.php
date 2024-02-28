@@ -70,8 +70,9 @@ if ($query->have_posts()) :
                 <p style="text-align:left"> <?php echo wp_trim_words(get_the_excerpt($firstPost->ID), 20) ?> </p>
                 <div style="text-align:right;font-size:24px"><a href="<?php echo get_permalink($firstPost->ID) ?>"><i class="fa-solid fa-arrow-right-long"></i></a></div>
             </div>
+            <div class>h</div>
         </div>
-        <div class="featured_latest_posts">
+        <div class="featured_latest_posts">     
             <h3>Latest Posts</h3>
             <?php
             while ($query->have_posts()) :
@@ -203,3 +204,38 @@ endif;
 
     @media screen and (max-width:768px) {}
 </style>
+
+
+
+
+<!-- <?php 
+    if ($query->have_posts()):
+        while ($query->have_posts()): $query->the_post();
+            $locations = get_field('location');
+            $times = get_field('time');
+            ?>
+            <div class="container_jobs" style="margin-bottom: 30px">
+                <div class="meta">
+                    <div class="title">
+                        <h3 style="margin:0"> <i class="fa-solid fa-briefcase"  style="margin-right: 10px"></i> <a href="<?= esc_url(get_permalink()) ?>"> <?= get_the_title(); ?> </a></h3> 
+                    </div>
+                    <div class="field">
+						<?php foreach ($times as $time) : ?>
+						<span><?= $time ?></span>
+						<?php endforeach; ?>
+						<?php foreach ($locations as $location) : ?>
+						<span><?= $location ?></span>
+						<?php endforeach; ?>
+                    </div>
+                    <div class="timer">
+                        <i class="fa-regular fa-bookmark" style="margin-right: 10px"></i> <?= get_the_date('d/m/Y') ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+    else :
+        echo '<p>No jobs found.</p>';
+    endif;
+    ?> -->

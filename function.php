@@ -53,3 +53,7 @@ function custom_filter_query_by_featured_posts($query)
     }
 }
 add_action('parse_query', 'custom_filter_query_by_featured_posts');
+
+
+// BE xử lí hanlder ajax filter products
+require_once get_stylesheet_directory() . '/ajax-handlers.php';
